@@ -18,8 +18,8 @@ public class GameFrame extends JFrame implements KeyListener, Runnable{
 
     // toolkit for getting image
     Toolkit tk = Toolkit.getDefaultToolkit();
-    Image characterImg = tk.getImage("image/jelly.png").getScaledInstance(30, 38, 10);
-    Image backgroundImg = tk.getImage("image/chocolate.png").getScaledInstance(800,200, 10);
+    Image characterImg = tk.getImage("src/image/jelly.png").getScaledInstance(30, 38, 10);
+    Image backgroundImg = tk.getImage("src/image/chocolate.png").getScaledInstance(800,200, 10);
 
     GameFrame(){
         // component setting for frame
