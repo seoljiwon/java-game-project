@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class GameFrame extends JFrame implements Runnable{
+public class GameFrame extends JFrame implements Runnable {
     int F_WIDTH = 800;
     int F_HEIGHT = 600;
 
@@ -10,19 +10,19 @@ public class GameFrame extends JFrame implements Runnable{
     KeyEventListener keyEventListener = new KeyEventListener();
 
     ImageObject characterImg = new ImageObject("src/image/jelly.png", 30, 38);
-    Character character = new Character(characterImg.image, 100, 3);
+    Character character = new Character(characterImg, 100, 3);
 
-    ImageObject skyImg = new ImageObject("src/image/sky.png",1600,600);
-    Background sky = new Background(skyImg.image);
+    ImageObject skyImg = new ImageObject("src/image/sky.png", 1600, 600);
+    Background sky = new Background(skyImg);
 
-    ImageObject floorImg = new ImageObject("src/image/floor.png",1600,200);
-    Background floor = new Background(floorImg.image, 400);
+    ImageObject floorImg = new ImageObject("src/image/floor.png", 1600, 200);
+    Background floor = new Background(floorImg, 400);
 
     // for double buffering
     Image buffImage;
     Graphics buffGraphics;
 
-    GameFrame(){
+    GameFrame() {
         // component setting for frame
         start();
 
@@ -32,15 +32,15 @@ public class GameFrame extends JFrame implements Runnable{
         // get current screen value for frame location setting
         Dimension screen = tk.getScreenSize();
 
-        int xPos = (int)(screen.getWidth() / 2 - F_WIDTH / 2);
-        int yPos = (int)(screen.getHeight() / 2 - F_HEIGHT / 2);
+        int xPos = (int) (screen.getWidth() / 2 - F_WIDTH / 2);
+        int yPos = (int) (screen.getHeight() / 2 - F_HEIGHT / 2);
 
         setLocation(xPos, yPos);
         setResizable(false);
         setVisible(true);
     }
 
-    public void start(){
+    public void start() {
         // close btn operation
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -50,36 +50,37 @@ public class GameFrame extends JFrame implements Runnable{
         th.start();
     }
 
-    public void run(){ // thread infinite loop
-        try{
-            while(true){
+    public void run() { // thread infinite loop
+        try {
+            while (true) {
                 character.move(keyEventListener); // update coordinates with keyboard input
                 sky.move();
                 floor.move();
                 repaint(); // paint new image with updated coordinates
                 Thread.sleep(20); // run thread with 20 milli sec
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
     }
 
-    public void paint(Graphics g){
+    public void paint(Graphics g) {
         buffImage = createImage(F_WIDTH, F_HEIGHT);
         buffGraphics = buffImage.getGraphics();
 
         update(g);
     }
 
-    public void update(Graphics g){
+    public void update(Graphics g) {
         draw();
 
         g.drawImage(buffImage, 0, 0, this);
     }
 
-    public void draw(){
+    public void draw() {
         buffGraphics.clearRect(0, 0, F_WIDTH, F_HEIGHT);
-        buffGraphics.drawImage(sky.image, sky.x, sky.y, this);
-        buffGraphics.drawImage(floor.image, floor.x, floor.y, this);
-        buffGraphics.drawImage(character.image, character.x, character.y, this);
+        buffGraphics.drawImage(sky.imageObj.image, sky.x, sky.y, this);
+        buffGraphics.drawImage(floor.imageObj.image, floor.x, floor.y, this);
+        buffGraphics.drawImage(character.imageObj.image, character.x, character.y, this);
     }
 
 }
