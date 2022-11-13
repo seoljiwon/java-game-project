@@ -18,7 +18,7 @@ public class GameFrame extends JFrame implements Runnable {
     ImageObject floorImg = new ImageObject("src/image/floor.png", 1600, 200);
     Background floor = new Background(floorImg, 400);
 
-    ImageObject enemyImg = new ImageObject("src/image/enemy_bomb.png", 40, 40);
+    ImageObject enemyImg = new ImageObject("src/image/enemy_basic.png", 40, 40);
     Enemy enemy1 = new Enemy(enemyImg, 30, 1600, 365);
     Enemy enemy2 = new Enemy(enemyImg, 30, 2000, 365);
 
