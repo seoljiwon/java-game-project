@@ -1,7 +1,8 @@
+import coordinate.ImageObject;
 public class BombEnemy extends Enemy {
     ImageObject boomImg = new ImageObject("src/image/boomm.png", 40, 40);
 
-    BombEnemy(ImageObject imageObj, int damage, int x, int y) {
+    public BombEnemy(ImageObject imageObj, int damage, int x, int y) {
         super(imageObj, damage, x, y);
     }
 

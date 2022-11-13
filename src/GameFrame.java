@@ -1,5 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
+import coordinate.ImageObject;
+
 
 public class GameFrame extends JFrame implements Runnable {
     int F_WIDTH = 800;

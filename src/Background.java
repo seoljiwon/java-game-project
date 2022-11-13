@@ -1,4 +1,4 @@
-import java.awt.*;
+import coordinate.ImageObject;
 
 public class Background {
     ImageObject imageObj;

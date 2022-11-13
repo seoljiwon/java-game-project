@@ -1,5 +1,6 @@
+import coordinate.ImageObject;
 public class DescendingEnemy extends Enemy {
-    DescendingEnemy(ImageObject imageObj, int damage, int x, int y) {
+    public DescendingEnemy(ImageObject imageObj, int damage, int x, int y) {
         super(imageObj, damage, x, y);
     }
 
