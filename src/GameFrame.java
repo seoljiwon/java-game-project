@@ -12,7 +12,15 @@ public class GameFrame extends JFrame implements Runnable{
     ImageObject characterImg = new ImageObject("src/image/jelly.png", 30, 38);
     Character character = new Character(characterImg.image, 100, 3);
 
-    ImageObject backgroundImg = new ImageObject("src/image/chocolate.png",800,200);
+    ImageObject skyImg = new ImageObject("src/image/sky.png",1600,600);
+    Background sky = new Background(skyImg.image);
+
+    ImageObject floorImg = new ImageObject("src/image/floor.png",1600,200);
+    Background floor = new Background(floorImg.image, 400);
+
+    // for double buffering
+    Image buffImage;
+    Graphics buffGraphics;
 
     GameFrame(){
         // component setting for frame
@@ -46,6 +54,8 @@ public class GameFrame extends JFrame implements Runnable{
         try{
             while(true){
                 character.move(keyEventListener); // update coordinates with keyboard input
+                sky.move();
+                floor.move();
                 repaint(); // paint new image with updated coordinates
                 Thread.sleep(20); // run thread with 20 milli sec
             }
@@ -53,8 +63,23 @@ public class GameFrame extends JFrame implements Runnable{
     }
 
     public void paint(Graphics g){
-        g.clearRect(0, 0, F_WIDTH, F_HEIGHT);
-        g.drawImage(characterImg.image, character.x, character.y, this);
-        g.drawImage(backgroundImg.image, 0, 400, this);
+        buffImage = createImage(F_WIDTH, F_HEIGHT);
+        buffGraphics = buffImage.getGraphics();
+
+        update(g);
     }
+
+    public void update(Graphics g){
+        draw();
+
+        g.drawImage(buffImage, 0, 0, this);
+    }
+
+    public void draw(){
+        buffGraphics.clearRect(0, 0, F_WIDTH, F_HEIGHT);
+        buffGraphics.drawImage(sky.image, sky.x, sky.y, this);
+        buffGraphics.drawImage(floor.image, floor.x, floor.y, this);
+        buffGraphics.drawImage(character.image, character.x, character.y, this);
+    }
+
 }
