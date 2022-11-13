@@ -4,7 +4,7 @@ public class DescendingEnemy extends Enemy {
     }
 
     public void move() {
-        x -= 5;
+        x -= 8;
         if (y < 12) {
             y += 4;
         }
