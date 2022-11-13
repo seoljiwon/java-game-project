@@ -9,21 +9,21 @@ public class Character {
     int x = 100;
     int y = 365;
 
-    public Character(Image image, int hp, int speed){
+    public Character(Image image, int hp, int speed) {
         this.image = image;
         this.hp = hp;
         this.speed = speed;
     }
 
-    public void jump(){
+    public void jump() {
         y -= 5;
     }
 
-    public void slide(){
+    public void slide() {
         x += 2;
     }
 
-    public void move(KeyEventListener keyEventListener){
+    public void move(KeyEventListener keyEventListener) {
         if (keyEventListener.keyUp == true) jump();
         if (keyEventListener.keyDown == true) slide();
     }
