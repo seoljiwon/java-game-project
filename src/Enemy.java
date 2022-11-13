@@ -1,6 +1,3 @@
-import java.awt.*;
-
-
 public class Enemy {
     ImageObject imageObj;
 
@@ -18,11 +15,27 @@ public class Enemy {
     }
 
     public void move() {
-        x -= 5;
+        x -= 8;
         if (x < -40) {
             x = 900;
         }
     }
 
+    public void crash(Character character) {
+        if (Collision.isCollided(this.x, this.y, character.x, character.y, this.imageObj.width, this.imageObj.height, character.imageObj.width, character.imageObj.height)) {
+            character.hp = character.hp - damage < 0 ? 0 : character.hp - damage;
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                    }
+                }
+
+            }).start();
+        }
+    }
 }
 
