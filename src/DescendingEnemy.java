@@ -5,6 +5,7 @@ public class DescendingEnemy extends Enemy {
         super(imageObject, damage, x, y);
     }
 
+    @Override
     public void move() {
         x -= 8;
         if (y < 12) {

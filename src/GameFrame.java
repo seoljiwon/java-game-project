@@ -26,6 +26,7 @@ public class GameFrame extends JFrame implements Runnable {
     ImageObject enemyImagePurple = new ImageObject("image/enemy_purple.png", 35, 35);
     Enemy groundPurpleEnemy = new Enemy(enemyImagePurple, 30, 2000, 365);
 
+
     ImageObject descendingEnemyImage = new ImageObject("image/descending.png", 50, 340);
     DescendingEnemy descendingEnemy = new DescendingEnemy(descendingEnemyImage, 30, 900, -300);
 

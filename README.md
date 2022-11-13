@@ -6,9 +6,6 @@
 
 <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> 
 
-<img src = "https://user-images.githubusercontent.com/95333568/201546447-765279a8-201a-43ba-a3ba-a3f701dafe83.mp4" width="45%" height="45%" align="center">
-
-
 ### 0. How to play the game / How to compile
 ---
 
@@ -26,9 +23,12 @@
   $ java Game
   ```
   
+  
   **Jelly Run automatically starts!👾** 
   **Enjoy the game with ▲ and ▼ key**
   
+  https://user-images.githubusercontent.com/76513385/201547587-2e396ca8-b25d-4541-8adc-fcd54cdc35e3.mp4
+
 
 ### 1. Character
 ---
