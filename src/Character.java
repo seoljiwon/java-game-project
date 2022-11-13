@@ -19,18 +19,29 @@ public class Character {
 
     public void init() {
         x = 100;
-        y = 365;
+        y = 345;
         imageObj.image = imageObj.getImage(imageObj.path);
     }
 
     public void jump(int jumpScale) {
-        y -= jumpScale;
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Thread.sleep(100);
-                } catch (Exception e) {
+                int jumpDiv = 5;
+                for (int i = 0; i < jumpDiv; i++) {
+                    try {
+                        y -= jumpScale / jumpDiv;
+                        Thread.sleep(30);
+                    } catch (Exception e) {
+                    }
+                }
+
+                for (int i = 0; i < jumpDiv; i++) {
+                    try {
+                        y += jumpScale / jumpDiv;
+                        Thread.sleep(30);
+                    } catch (Exception e) {
+                    }
                 }
 
                 init();
@@ -47,7 +58,7 @@ public class Character {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(400);
                 } catch (Exception e) {
                 }
 

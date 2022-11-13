@@ -16,7 +16,7 @@ public class Background {
     }
 
     public void move() {
-        x -= 5;
+        x -= 2;
         if (x < -800) {
             x = 0;
         }
