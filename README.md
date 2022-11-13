@@ -1,6 +1,6 @@
 # JAV Mini Game Project
 
-**🙋‍♀️ participants** @seoljiwon @kyoungmiin
+**🙋‍♀️ participants** Jiwon Seol(@seoljiwon), Kyoungmin Lee(@kyoungmiin)
 
 **👩🏻‍💻 tech stack** 100% java 😁
 
@@ -11,10 +11,17 @@
 
 
   After cloning... In directory 'java_game_project/src'. 
-  run command
+  Run command
   
-  `javac Game.java`  
-  `java Game`
+  To Compile the source code,  
+  ```
+  $ javac Game.java
+  ```
+  
+  To execute byte code file,  
+  ```
+  $ java Game
+  ```
   
   **Jelly Run automatically starts!👾** 
   **Enjoy the game with ▲ and ▼ key**
