@@ -23,5 +23,3 @@ public abstract class Enemy {
         }
     }
 }
-
-
