@@ -6,7 +6,7 @@
 
 <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> 
 
-<img src = "https://user-images.githubusercontent.com/95333568/201546447-765279a8-201a-43ba-a3ba-a3f701dafe83.mp4" width="50%" height="50%">
+<img src = "https://user-images.githubusercontent.com/95333568/201546447-765279a8-201a-43ba-a3ba-a3f701dafe83.mp4" width="45%" height="45%" align="center">
 
 
 ### 0. How to play the game / How to compile
