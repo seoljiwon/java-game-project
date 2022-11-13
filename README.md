@@ -1,4 +1,4 @@
-# JAV Mini Game Project
+# IST-JAV MINI GAME PROJECT
 
 **🙋‍♀️ participants** Jiwon Seol(@seoljiwon), Kyoungmin Lee(@kyoungmiin)
 
@@ -10,7 +10,7 @@
 ---
 
 
-  After cloning... In directory 'java_game_project/src'. 
+  After cloning... In directory `java_game_project/src`  
   Run command
   
   To Compile the source code,  
