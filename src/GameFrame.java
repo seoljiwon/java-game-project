@@ -18,9 +18,9 @@ public class GameFrame extends JFrame implements Runnable {
     ImageObject floorImg = new ImageObject("src/image/floor.png", 1600, 200);
     Background floor = new Background(floorImg, 400);
 
-    ImageObject enemyImg1 = new ImageObject("src/image/enemy_bomb.png", 40, 40);
-    Enemy enemy1 = new Enemy(enemyImg1, 30, 900, 365);
-    Enemy enemy2 = new Enemy(enemyImg1, 30, 1200, 365);
+    ImageObject enemyImg = new ImageObject("src/image/enemy_bomb.png", 40, 40);
+    Enemy enemy1 = new Enemy(enemyImg, 30, 900, 365);
+    Enemy enemy2 = new Enemy(enemyImg, 30, 1200, 365);
 
     ImageObject bombEnemyImg = new ImageObject("src/image/enemy_bomb.png", 40, 40);
     BombEnemy bombEnemy = new BombEnemy(bombEnemyImg, 30, 700, 0);
@@ -94,7 +94,7 @@ public class GameFrame extends JFrame implements Runnable {
         buffGraphics.drawImage(character.imageObj.image, character.x, character.y, this);
         buffGraphics.drawImage(enemy1.imageObj.image, enemy1.x, enemy1.y, this);
         buffGraphics.drawImage(enemy2.imageObj.image, enemy2.x, enemy2.y, this);
-        buffGraphics.drawImage(bombEnemy.imageObj.image,bombEnemy.x,bombEnemy.y,this);
+        buffGraphics.drawImage(bombEnemy.imageObj.image, bombEnemy.x, bombEnemy.y, this);
         buffGraphics.setFont(new Font("Default", Font.BOLD, 15));
         buffGraphics.drawString("HP : " + character.hp, 700, 50);
     }

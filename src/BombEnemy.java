@@ -1,7 +1,13 @@
 public class BombEnemy extends Enemy {
+    ImageObject boomImg = new ImageObject("src/image/boomm.png", 40, 40);
+
     BombEnemy(ImageObject imageObj, int damage, int x, int y) {
         super(imageObj, damage, x, y);
-        this.descend();
+    }
+
+    @Override
+    public void move() {
+        x -= 10;
     }
 
     public void descend() {
@@ -13,8 +19,7 @@ public class BombEnemy extends Enemy {
     }
 
     public void bomb() {
-        ImageObject boomImg = new ImageObject("src/image/boomm.png", 40, 40);
-        this.imageObj=boomImg;
+        this.imageObj = boomImg;
         this.move();
     }
 }
