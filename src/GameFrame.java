@@ -18,6 +18,12 @@ public class GameFrame extends JFrame implements Runnable{
     ImageObject floorImg = new ImageObject("src/image/floor.png",1600,200);
     Background floor = new Background(floorImg.image, 400);
 
+    ImageObject enemyImg = new ImageObject("src/image/enemy_bomb.png",40,40);
+    Enemy enemy1 = new Enemy(enemyImg.image, 30,900);
+    Enemy enemy2 = new Enemy(enemyImg.image, 30,1200);
+
+
+
     // for double buffering
     Image buffImage;
     Graphics buffGraphics;
@@ -56,6 +62,8 @@ public class GameFrame extends JFrame implements Runnable{
                 character.move(keyEventListener); // update coordinates with keyboard input
                 sky.move();
                 floor.move();
+                enemy1.move();
+                enemy2.move();
                 repaint(); // paint new image with updated coordinates
                 Thread.sleep(20); // run thread with 20 milli sec
             }
@@ -80,6 +88,9 @@ public class GameFrame extends JFrame implements Runnable{
         buffGraphics.drawImage(sky.image, sky.x, sky.y, this);
         buffGraphics.drawImage(floor.image, floor.x, floor.y, this);
         buffGraphics.drawImage(character.image, character.x, character.y, this);
+        buffGraphics.drawImage(enemy1.image,enemy1.x,enemy1.y,this);
+        buffGraphics.drawImage(enemy2.image,enemy2.x,enemy2.y,this);
+
     }
 
 }
