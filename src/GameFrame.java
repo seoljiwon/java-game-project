@@ -9,8 +9,8 @@ public class GameFrame extends JFrame implements Runnable {
     Toolkit tk = Toolkit.getDefaultToolkit();
     KeyEventListener keyEventListener = new KeyEventListener();
 
-    ImageObject characterImg = new ImageObject("src/image/jelly.png", 30, 38);
-    Character character = new Character(characterImg, 100, 3);
+    ImageObject characterImg = new ImageObject("src/image/jelly.png", 38, 52);
+    Character character = new Character(characterImg, 1000, 3);
 
     ImageObject skyImg = new ImageObject("src/image/sky.png", 1600, 600);
     Background sky = new Background(skyImg);
@@ -63,6 +63,8 @@ public class GameFrame extends JFrame implements Runnable {
                 floor.move();
                 enemy1.move();
                 enemy2.move();
+                enemy1.crash(character);
+                enemy2.crash(character);
                 repaint(); // paint new image with updated coordinates
                 Thread.sleep(20); // run thread with 20 milli sec
             }

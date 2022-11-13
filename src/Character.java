@@ -24,13 +24,24 @@ public class Character {
     }
 
     public void jump(int jumpScale) {
-        y -= jumpScale;
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Thread.sleep(100);
-                } catch (Exception e) {
+                int jumpDiv = 5;
+                for (int i = 0 ; i < jumpDiv ; i++){
+                    try {
+                        y -= jumpScale / jumpDiv;
+                        Thread.sleep(30);
+                    } catch (Exception e) {
+                    }
+                }
+
+                for (int i = 0 ; i < jumpDiv ; i++){
+                    try {
+                        y += jumpScale / jumpDiv;
+                        Thread.sleep(30);
+                    } catch (Exception e) {
+                    }
                 }
 
                 init();
