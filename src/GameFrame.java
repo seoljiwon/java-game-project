@@ -1,29 +1,21 @@
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import javax.swing.*;
 
-public class GameFrame extends JFrame implements KeyListener, Runnable{
+public class GameFrame extends JFrame implements Runnable{
     int F_WIDTH = 800;
     int F_HEIGHT = 600;
 
-    int x, y; // character coordinates
-    boolean KeyUp = false;
-    boolean KeyDown = false;
-    boolean KeyLeft = false;
-    boolean KeyRight = false;
-    boolean KeySpace = false;
-
     Thread th;
-
-    // toolkit for getting image
     Toolkit tk = Toolkit.getDefaultToolkit();
-    Image characterImg = tk.getImage("src/image/jelly.png").getScaledInstance(30, 38, 10);
-    Image backgroundImg = tk.getImage("src/image/chocolate.png").getScaledInstance(800,200, 10);
+    KeyEventListener keyEventListener = new KeyEventListener();
+
+    ImageObject characterImg = new ImageObject("src/image/jelly.png", 30, 38);
+    Character character = new Character(characterImg.image, 100, 3);
+
+    ImageObject backgroundImg = new ImageObject("src/image/chocolate.png",800,200);
 
     GameFrame(){
         // component setting for frame
-        init();
         start();
 
         setTitle("Jelly Run");
@@ -39,16 +31,13 @@ public class GameFrame extends JFrame implements KeyListener, Runnable{
         setResizable(false);
         setVisible(true);
     }
-    public void init(){
-        // init character coordinates
-        x = 100;
-        y = 365;
-    }
+
     public void start(){
         // close btn operation
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        addKeyListener(this);
+        addKeyListener(keyEventListener);
+
         th = new Thread(this);
         th.start();
     }
@@ -56,7 +45,7 @@ public class GameFrame extends JFrame implements KeyListener, Runnable{
     public void run(){ // thread infinite loop
         try{
             while(true){
-                KeyProcess(); // update coordinates with keyboard input
+                character.move(keyEventListener); // update coordinates with keyboard input
                 repaint(); // paint new image with updated coordinates
                 Thread.sleep(20); // run thread with 20 milli sec
             }
@@ -65,58 +54,7 @@ public class GameFrame extends JFrame implements KeyListener, Runnable{
 
     public void paint(Graphics g){
         g.clearRect(0, 0, F_WIDTH, F_HEIGHT);
-        g.drawImage(characterImg, x, y, this);
-        g.drawImage(backgroundImg, 0, 400, this);
-    }
-
-    public void keyPressed(KeyEvent e){
-        switch(e.getKeyCode()){
-            case KeyEvent.VK_UP :
-                KeyUp = true;
-                break;
-            case KeyEvent.VK_DOWN :
-                KeyDown = true;
-                break;
-            case KeyEvent.VK_LEFT :
-                KeyLeft = true;
-                break;
-            case KeyEvent.VK_RIGHT :
-                KeyRight = true;
-                break;
-            case KeyEvent.VK_SPACE:
-                KeySpace = true;
-                break;
-        }
-    }
-
-    public void keyReleased(KeyEvent e){
-        switch(e.getKeyCode()){
-            case KeyEvent.VK_UP :
-                KeyUp = false;
-                break;
-            case KeyEvent.VK_DOWN :
-                KeyDown = false;
-                break;
-            case KeyEvent.VK_LEFT :
-                KeyLeft = false;
-                break;
-            case KeyEvent.VK_RIGHT :
-                KeyRight = false;
-                break;
-            case KeyEvent.VK_SPACE:
-                KeySpace = false;
-                break;
-        }
-    }
-
-    public void keyTyped(KeyEvent e){}
-
-    public void KeyProcess(){
-        // move character with keyboard input
-        if(KeyUp == true) y -= 5;
-        if(KeyDown == true) y += 5;
-        if(KeyLeft == true) x -= 5;
-        if(KeyRight == true) x += 5;
-        if(KeySpace == true) y -= 5;
+        g.drawImage(characterImg.image, character.x, character.y, this);
+        g.drawImage(backgroundImg.image, 0, 400, this);
     }
 }
