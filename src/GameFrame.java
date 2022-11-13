@@ -9,7 +9,7 @@ public class GameFrame extends JFrame implements Runnable {
     Toolkit tk = Toolkit.getDefaultToolkit();
     KeyEventListener keyEventListener = new KeyEventListener();
 
-    ImageObject characterImg = new ImageObject("src/image/jelly.png", 38, 52);
+    ImageObject characterImg = new ImageObject("src/image/jelly.png", 50, 65);
     Character character = new Character(characterImg, 1000, 3);
 
     ImageObject skyImg = new ImageObject("src/image/sky.png", 1600, 600);

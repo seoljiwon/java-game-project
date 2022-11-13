@@ -19,7 +19,7 @@ public class Character {
 
     public void init() {
         x = 100;
-        y = 365;
+        y = 345;
         imageObj.image = imageObj.getImage(imageObj.path);
     }
 
@@ -58,7 +58,7 @@ public class Character {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(400);
                 } catch (Exception e) {
                 }
 
