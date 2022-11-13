@@ -1,15 +1,11 @@
 import coordinate.*;
 
-public class Enemy extends EnemyAbstract{
-    ImageObject imageObject;
-
-    int damage;
-
-    int x;
-
-    int y;
-    
-    int crashCount = 0;
+public abstract class Enemy {
+    public ImageObject imageObject;
+    public int damage;
+    public int x;
+    public int y;
+    public int crashCount = 0;
 
     public Enemy(ImageObject imageObject, int damage, int x, int y) {
         this.imageObject = imageObject;
@@ -18,14 +14,7 @@ public class Enemy extends EnemyAbstract{
         this.y = y;
     }
 
-    @Override
-    public void move() {
-        x -= 8;
-        if (x < -40) {
-            x = 900;
-            crashCount = 0;
-        }
-    }
+    public abstract void move();
 
     public void crash(Character character) {
         if (crashCount == 0 && Collision.isCollided(this.x, this.y, character.x, character.y, this.imageObject.getWidth(), this.imageObject.getHeight(), character.imageObject.getWidth(), character.imageObject.getHeight())) {
@@ -34,3 +23,5 @@ public class Enemy extends EnemyAbstract{
         }
     }
 }
+
+
