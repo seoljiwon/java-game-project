@@ -22,6 +22,9 @@ public class GameFrame extends JFrame implements Runnable {
     Enemy enemy1 = new Enemy(enemyImg, 30, 900, 365);
     Enemy enemy2 = new Enemy(enemyImg, 30, 1200, 365);
 
+    ImageObject bombEnemyImg = new ImageObject("src/image/enemy_bomb.png", 40, 40);
+    BombEnemy bombEnemy = new BombEnemy(bombEnemyImg, 30, 700, 0);
+
 
     // for double buffering
     Image buffImage;
@@ -64,6 +67,7 @@ public class GameFrame extends JFrame implements Runnable {
                 floor.move();
                 enemy1.move();
                 enemy2.move();
+                bombEnemy.descend();
                 enemy1.crash(character);
                 enemy2.crash(character);
                 repaint(); // paint new image with updated coordinates
@@ -97,6 +101,7 @@ public class GameFrame extends JFrame implements Runnable {
         buffGraphics.drawImage(character.imageObj.image, character.x, character.y, this);
         buffGraphics.drawImage(enemy1.imageObj.image, enemy1.x, enemy1.y, this);
         buffGraphics.drawImage(enemy2.imageObj.image, enemy2.x, enemy2.y, this);
+        buffGraphics.drawImage(bombEnemy.imageObj.image, bombEnemy.x, bombEnemy.y, this);
         buffGraphics.setFont(new Font("Default", Font.BOLD, 15));
         buffGraphics.drawString("HP : " + character.hp, 700, 50);
 
