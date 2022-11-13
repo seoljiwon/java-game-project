@@ -4,11 +4,9 @@ public class DescendingEnemy extends Enemy {
     }
 
     public void move() {
+        x -= 5;
         if (y < 12) {
             y += 4;
-            x -= 5;
-        } else if (y == 12) {
-            x -= 5;
         }
     }
 
