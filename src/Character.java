@@ -1,4 +1,5 @@
 import coordinate.ImageObject;
+
 public class Character {
     ImageObject imageObj;
     int hp;

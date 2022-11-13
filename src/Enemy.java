@@ -1,4 +1,5 @@
 import coordinate.*;
+
 public class Enemy {
     ImageObject imageObj;
 
@@ -39,4 +40,3 @@ public class Enemy {
         }
     }
 }
-
