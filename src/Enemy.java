@@ -8,6 +8,8 @@ public class Enemy {
     int x;
 
     int y;
+    
+    int crashCount = 0;
 
     public Enemy(ImageObject imageObject, int damage, int x, int y) {
         this.imageObject = imageObject;
@@ -20,23 +22,14 @@ public class Enemy {
         x -= 8;
         if (x < -40) {
             x = 900;
+            crashCount = 0;
         }
     }
 
     public void crash(Character character) {
-        if (Collision.isCollided(this.x, this.y, character.x, character.y, this.imageObject.getWidth(), this.imageObject.getHeight(), character.imageObject.getWidth(), character.imageObject.getHeight())) {
+        if (crashCount == 0 && Collision.isCollided(this.x, this.y, character.x, character.y, this.imageObj.getWidth(), this.imageObj.getHeight(), character.imageObj.getWidth(), character.imageObj.getHeight())) {
             character.hp = character.hp - damage < 0 ? 0 : character.hp - damage;
-
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (Exception e) {
-                    }
-                }
-
-            }).start();
+            crashCount += 1;
         }
     }
 }
