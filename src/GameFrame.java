@@ -22,6 +22,8 @@ public class GameFrame extends JFrame implements Runnable {
     Enemy enemy1 = new Enemy(enemyImg, 30, 900, 365);
     Enemy enemy2 = new Enemy(enemyImg, 30, 1200, 365);
 
+    ImageObject candyEnemyImg = new ImageObject("src/image/candy.png", 170, 340);
+    CandyEnemy candyEnemy = new CandyEnemy(candyEnemyImg, 30, 900, -300);
 
     // for double buffering
     Image buffImage;
@@ -63,6 +65,7 @@ public class GameFrame extends JFrame implements Runnable {
                 floor.move();
                 enemy1.move();
                 enemy2.move();
+                candyEnemy.move();
                 repaint(); // paint new image with updated coordinates
                 Thread.sleep(20); // run thread with 20 milli sec
             }
@@ -90,6 +93,7 @@ public class GameFrame extends JFrame implements Runnable {
         buffGraphics.drawImage(character.imageObj.image, character.x, character.y, this);
         buffGraphics.drawImage(enemy1.imageObj.image, enemy1.x, enemy1.y, this);
         buffGraphics.drawImage(enemy2.imageObj.image, enemy2.x, enemy2.y, this);
+        buffGraphics.drawImage(candyEnemy.imageObj.image, candyEnemy.x, candyEnemy.y, this);
         buffGraphics.setFont(new Font("Default", Font.BOLD, 15));
         buffGraphics.drawString("HP : " + character.hp, 700, 50);
     }
