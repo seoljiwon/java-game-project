@@ -1,7 +1,7 @@
 import coordinate.ImageObject;
 
 public class Character {
-    ImageObject imageObj;
+    ImageObject imageObject;
     int hp;
     int speed;
     int jumpScale = 40;
@@ -11,8 +11,8 @@ public class Character {
     int y;
 
 
-    public Character(ImageObject imageObj, int hp, int speed) {
-        this.imageObj = imageObj;
+    public Character(ImageObject imageObject, int hp, int speed) {
+        this.imageObject = imageObject;
         this.hp = hp;
         this.speed = speed;
 
@@ -22,25 +22,25 @@ public class Character {
     public void init() {
         x = 100;
         y = 345;
-        imageObj.image = imageObj.getResizedImage(imageObj.path);
+        imageObject.image = imageObject.getResizedImage(imageObject.path);
     }
 
     public void jump(int jumpScale) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                int jumpDiv = 5;
-                for (int i = 0; i < jumpDiv; i++) {
+                int jumpDivision = 5;
+                for (int i = 0; i < jumpDivision; i++) {
                     try {
-                        y -= jumpScale / jumpDiv;
+                        y -= jumpScale / jumpDivision;
                         Thread.sleep(30);
                     } catch (Exception e) {
                     }
                 }
 
-                for (int i = 0; i < jumpDiv; i++) {
+                for (int i = 0; i < jumpDivision; i++) {
                     try {
-                        y += jumpScale / jumpDiv;
+                        y += jumpScale / jumpDivision;
                         Thread.sleep(30);
                     } catch (Exception e) {
                     }
@@ -54,7 +54,7 @@ public class Character {
 
     public void slide() {
         y += 5;
-        imageObj.image = imageObj.image.getScaledInstance(imageObj.getWidth(), imageObj.getHeight() / 2, imageObj.getHints());
+        imageObject.image = imageObject.image.getScaledInstance(imageObject.getWidth(), imageObject.getHeight() / 2, imageObject.getHints());
 
         new Thread(new Runnable() {
             @Override
