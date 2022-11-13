@@ -10,13 +10,13 @@ public class GameFrame extends JFrame implements Runnable {
     KeyEventListener keyEventListener = new KeyEventListener();
 
     ImageObject characterImg = new ImageObject("src/image/jelly.png", 30, 38);
-    Character character = new Character(characterImg.image, 100, 3);
+    Character character = new Character(characterImg, 100, 3);
 
     ImageObject skyImg = new ImageObject("src/image/sky.png", 1600, 600);
-    Background sky = new Background(skyImg.image);
+    Background sky = new Background(skyImg);
 
     ImageObject floorImg = new ImageObject("src/image/floor.png", 1600, 200);
-    Background floor = new Background(floorImg.image, 400);
+    Background floor = new Background(floorImg, 400);
 
     ImageObject enemyImg = new ImageObject("src/image/enemy_bomb.png", 40, 40);
     Enemy enemy1 = new Enemy(enemyImg.image, 30, 900);
@@ -85,12 +85,11 @@ public class GameFrame extends JFrame implements Runnable {
 
     public void draw() {
         buffGraphics.clearRect(0, 0, F_WIDTH, F_HEIGHT);
-        buffGraphics.drawImage(sky.image, sky.x, sky.y, this);
-        buffGraphics.drawImage(floor.image, floor.x, floor.y, this);
-        buffGraphics.drawImage(character.image, character.x, character.y, this);
+        buffGraphics.drawImage(sky.imageObj.image, sky.x, sky.y, this);
+        buffGraphics.drawImage(floor.imageObj.image, floor.x, floor.y, this);
+        buffGraphics.drawImage(character.imageObj.image, character.x, character.y, this);
         buffGraphics.drawImage(enemy1.image, enemy1.x, enemy1.y, this);
         buffGraphics.drawImage(enemy2.image, enemy2.x, enemy2.y, this);
-
     }
 
 }

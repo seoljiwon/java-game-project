@@ -1,17 +1,17 @@
 import java.awt.*;
 
 public class Background {
-    Image image;
+    ImageObject imageObj;
 
     int x = 0;
-    int y = 0;
+    int y;
 
-    public Background(Image image) {
-        this(image, 0);
+    public Background(ImageObject imageObj) {
+        this(imageObj, 0);
     }
 
-    public Background(Image image, int y) {
-        this.image = image;
+    public Background(ImageObject imageObj, int y) {
+        this.imageObj = imageObj;
         this.y = y;
     }
 
