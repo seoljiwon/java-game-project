@@ -57,7 +57,8 @@ public class GameFrame extends JFrame implements Runnable {
 
     public void run() { // thread infinite loop
         try {
-            while (true) {
+            boolean running = true;
+            while (running) {
                 character.move(keyEventListener); // update coordinates with keyboard input
                 sky.move();
                 floor.move();
@@ -67,6 +68,10 @@ public class GameFrame extends JFrame implements Runnable {
                 enemy2.crash(character);
                 repaint(); // paint new image with updated coordinates
                 Thread.sleep(20); // run thread with 20 milli sec
+
+                if (character.hp == 0) {
+                    running = false;
+                }
             }
         } catch (Exception e) {
         }
@@ -94,6 +99,10 @@ public class GameFrame extends JFrame implements Runnable {
         buffGraphics.drawImage(enemy2.imageObj.image, enemy2.x, enemy2.y, this);
         buffGraphics.setFont(new Font("Default", Font.BOLD, 15));
         buffGraphics.drawString("HP : " + character.hp, 700, 50);
-    }
 
+        if (character.hp == 0) {
+            buffGraphics.setFont(new Font("Default", Font.BOLD, 45));
+            buffGraphics.drawString("GAME OVER", 265, F_HEIGHT / 2);
+        }
+    }
 }

@@ -28,7 +28,7 @@ public class Character {
             @Override
             public void run() {
                 int jumpDiv = 5;
-                for (int i = 0 ; i < jumpDiv ; i++){
+                for (int i = 0; i < jumpDiv; i++) {
                     try {
                         y -= jumpScale / jumpDiv;
                         Thread.sleep(30);
@@ -36,7 +36,7 @@ public class Character {
                     }
                 }
 
-                for (int i = 0 ; i < jumpDiv ; i++){
+                for (int i = 0; i < jumpDiv; i++) {
                     try {
                         y += jumpScale / jumpDiv;
                         Thread.sleep(30);
