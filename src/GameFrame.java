@@ -1,6 +1,9 @@
 import java.awt.*;
 import javax.swing.*;
 
+import coordinate.ImageObject;
+
+
 public class GameFrame extends JFrame implements Runnable {
     int F_WIDTH = 800;
     int F_HEIGHT = 600;
@@ -9,23 +12,23 @@ public class GameFrame extends JFrame implements Runnable {
     Toolkit tk = Toolkit.getDefaultToolkit();
     KeyEventListener keyEventListener = new KeyEventListener();
 
-    ImageObject characterImg = new ImageObject("src/image/jelly.png", 50, 65);
+    ImageObject characterImg = new ImageObject("image/jelly.png", 50, 65);
     Character character = new Character(characterImg, 1000, 2);
 
-    ImageObject skyImg = new ImageObject("src/image/sky.png", 1600, 600);
+    ImageObject skyImg = new ImageObject("image/sky.png", 1600, 600);
     Background sky = new Background(skyImg);
 
-    ImageObject floorImg = new ImageObject("src/image/floor.png", 1600, 200);
+    ImageObject floorImg = new ImageObject("image/floor.png", 1600, 200);
     Background floor = new Background(floorImg, 400);
 
-    ImageObject enemyImg = new ImageObject("src/image/enemy_bomb.png", 40, 40);
+    ImageObject enemyImg = new ImageObject("image/enemy_bomb.png", 40, 40);
     Enemy enemy1 = new Enemy(enemyImg, 30, 1600, 365);
     Enemy enemy2 = new Enemy(enemyImg, 30, 2000, 365);
 
     ImageObject descendingEnemyImg = new ImageObject("src/image/descending.png", 50, 340);
     DescendingEnemy descendingEnemy = new DescendingEnemy(descendingEnemyImg, 30, 900, -300);
 
-    ImageObject bombEnemyImg = new ImageObject("src/image/enemy_bomb.png", 40, 40);
+    ImageObject bombEnemyImg = new ImageObject("image/enemy_bomb.png", 40, 40);
     BombEnemy bombEnemy = new BombEnemy(bombEnemyImg, 30, 700, 0);
 
 
