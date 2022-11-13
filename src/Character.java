@@ -8,6 +8,7 @@ public class Character {
     int x;
     int y;
 
+
     public Character(ImageObject imageObj, int hp, int speed) {
         this.imageObj = imageObj;
         this.hp = hp;
