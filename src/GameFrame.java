@@ -10,7 +10,7 @@ public class GameFrame extends JFrame implements Runnable {
     KeyEventListener keyEventListener = new KeyEventListener();
 
     ImageObject characterImg = new ImageObject("src/image/jelly.png", 50, 65);
-    Character character = new Character(characterImg, 1000, 3);
+    Character character = new Character(characterImg, 1000, 2);
 
     ImageObject skyImg = new ImageObject("src/image/sky.png", 1600, 600);
     Background sky = new Background(skyImg);
@@ -63,8 +63,8 @@ public class GameFrame extends JFrame implements Runnable {
             boolean running = true;
             while (running) {
                 character.move(keyEventListener); // update coordinates with keyboard input
-                sky.move();
-                floor.move();
+                sky.move(character.speed);
+                floor.move(character.speed);
                 enemy1.move();
                 enemy2.move();
                 bombEnemy.descend();

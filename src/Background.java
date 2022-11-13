@@ -15,8 +15,8 @@ public class Background {
         this.y = y;
     }
 
-    public void move() {
-        x -= 2;
+    public void move(int speed) {
+        x -= speed;
         if (x < -800) {
             x = 0;
         }
