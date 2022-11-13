@@ -1,6 +1,6 @@
 import coordinate.ImageObject;
 
-public class Character {
+public class Character implements Control{
     ImageObject imageObject;
     int hp;
     int speed;
