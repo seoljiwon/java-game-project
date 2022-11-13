@@ -7,7 +7,7 @@ public class BombEnemy extends Enemy {
 
     @Override
     public void move() {
-        x -= 10;
+        x -= 7;
     }
 
     public void descend() {

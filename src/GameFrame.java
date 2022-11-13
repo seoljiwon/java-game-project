@@ -19,8 +19,11 @@ public class GameFrame extends JFrame implements Runnable {
     Background floor = new Background(floorImg, 400);
 
     ImageObject enemyImg = new ImageObject("src/image/enemy_bomb.png", 40, 40);
-    Enemy enemy1 = new Enemy(enemyImg, 30, 900, 365);
-    Enemy enemy2 = new Enemy(enemyImg, 30, 1200, 365);
+    Enemy enemy1 = new Enemy(enemyImg, 30, 1600, 365);
+    Enemy enemy2 = new Enemy(enemyImg, 30, 2000, 365);
+
+    ImageObject descendingEnemyImg = new ImageObject("src/image/pepero.png", 170, 340);
+    DescendingEnemy descendingEnemy = new DescendingEnemy(descendingEnemyImg, 30, 900, -300);
 
     ImageObject bombEnemyImg = new ImageObject("src/image/enemy_bomb.png", 40, 40);
     BombEnemy bombEnemy = new BombEnemy(bombEnemyImg, 30, 700, 0);
@@ -67,9 +70,12 @@ public class GameFrame extends JFrame implements Runnable {
                 floor.move();
                 enemy1.move();
                 enemy2.move();
-                bombEnemy.descend();
                 enemy1.crash(character);
                 enemy2.crash(character);
+                descendingEnemy.move();
+                descendingEnemy.crash(character);
+                bombEnemy.descend();
+                bombEnemy.crash(character);
                 repaint(); // paint new image with updated coordinates
                 Thread.sleep(20); // run thread with 20 milli sec
 
@@ -101,6 +107,7 @@ public class GameFrame extends JFrame implements Runnable {
         buffGraphics.drawImage(character.imageObj.image, character.x, character.y, this);
         buffGraphics.drawImage(enemy1.imageObj.image, enemy1.x, enemy1.y, this);
         buffGraphics.drawImage(enemy2.imageObj.image, enemy2.x, enemy2.y, this);
+        buffGraphics.drawImage(descendingEnemy.imageObj.image, descendingEnemy.x, descendingEnemy.y, this);
         buffGraphics.drawImage(bombEnemy.imageObj.image, bombEnemy.x, bombEnemy.y, this);
         buffGraphics.setFont(new Font("Default", Font.BOLD, 15));
         buffGraphics.drawString("HP : " + character.hp, 700, 50);
