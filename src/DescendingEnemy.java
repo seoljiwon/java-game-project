@@ -1,11 +1,8 @@
 import coordinate.ImageObject;
 
-public class DescendingEnemy extends EnemyAbstract {
-    public DescendingEnemy(ImageObject imageObj, int damage, int x, int y) {
-        this.imageObj = imageObj;
-        this.damage = damage;
-        this.x = x;
-        this.y = y;
+public class DescendingEnemy extends Enemy {
+    public DescendingEnemy(ImageObject imageObject, int damage, int x, int y) {
+        super(imageObject, damage, x, y);
     }
 
     @Override

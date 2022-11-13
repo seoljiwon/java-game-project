@@ -1,17 +1,17 @@
 import coordinate.ImageObject;
 
 public class Background {
-    ImageObject imageObj;
+    ImageObject imageObject;
 
     int x = 0;
     int y;
 
-    public Background(ImageObject imageObj) {
-        this(imageObj, 0);
+    public Background(ImageObject imageObject) {
+        this(imageObject, 0);
     }
 
-    public Background(ImageObject imageObj, int y) {
-        this.imageObj = imageObj;
+    public Background(ImageObject imageObject, int y) {
+        this.imageObject = imageObject;
         this.y = y;
     }
 

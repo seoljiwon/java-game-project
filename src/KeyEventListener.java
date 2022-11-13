@@ -5,8 +5,8 @@ public class KeyEventListener implements KeyListener {
     boolean keyUp = false;
     boolean keyDown = false;
 
-    public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
+    public void keyPressed(KeyEvent event) {
+        switch (event.getKeyCode()) {
             case KeyEvent.VK_UP:
                 keyUp = true;
                 break;
@@ -16,8 +16,8 @@ public class KeyEventListener implements KeyListener {
         }
     }
 
-    public void keyReleased(KeyEvent e) {
-        switch (e.getKeyCode()) {
+    public void keyReleased(KeyEvent event) {
+        switch (event.getKeyCode()) {
             case KeyEvent.VK_UP:
                 keyUp = false;
                 break;
@@ -27,6 +27,6 @@ public class KeyEventListener implements KeyListener {
         }
     }
 
-    public void keyTyped(KeyEvent e) {
+    public void keyTyped(KeyEvent event) {
     }
 }

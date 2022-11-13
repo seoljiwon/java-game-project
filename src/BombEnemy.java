@@ -1,13 +1,10 @@
 import coordinate.ImageObject;
 
-public class BombEnemy extends EnemyAbstract {
-    ImageObject boomImg = new ImageObject("image/boomm.png", 40, 40);
+public class BombEnemy extends Enemy {
+    ImageObject boomImage = new ImageObject("image/boomm.png", 40, 40);
 
-    public BombEnemy(ImageObject imageObj, int damage, int x, int y) {
-        this.imageObj = imageObj;
-        this.damage = damage;
-        this.x = x;
-        this.y = y;
+    public BombEnemy(ImageObject imageObject, int damage, int x, int y) {
+        super(imageObject, damage, x, y);
     }
 
     @Override
@@ -24,7 +21,7 @@ public class BombEnemy extends EnemyAbstract {
     }
 
     public void bomb() {
-        this.imageObj = boomImg;
+        this.imageObject = boomImage;
         this.move();
     }
 }
