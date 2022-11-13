@@ -10,8 +10,8 @@ public class Background {
         this(imageObject, 0);
     }
 
-    public Background(ImageObject imageObj, int y) {
-        this.imageObject = imageObj;
+    public Background(ImageObject imageObject, int y) {
+        this.imageObject = imageObject;
         this.y = y;
     }
 

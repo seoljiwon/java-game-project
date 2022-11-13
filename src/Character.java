@@ -34,7 +34,7 @@ public class Character {
                     try {
                         y -= jumpScale / jumpDivision;
                         Thread.sleep(30);
-                    } catch (Exception e) {
+                    } catch (Exception error) {
                     }
                 }
 
@@ -42,7 +42,7 @@ public class Character {
                     try {
                         y += jumpScale / jumpDivision;
                         Thread.sleep(30);
-                    } catch (Exception e) {
+                    } catch (Exception error) {
                     }
                 }
 
@@ -61,7 +61,7 @@ public class Character {
             public void run() {
                 try {
                     Thread.sleep(400);
-                } catch (Exception e) {
+                } catch (Exception error) {
                 }
 
                 init();

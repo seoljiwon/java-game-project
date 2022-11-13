@@ -8,8 +8,8 @@ public class GameFrame extends JFrame implements Runnable {
     int FRAME_WIDTH = 800;
     int FRAME_HEIGHT = 600;
 
-    Thread th;
-    Toolkit tk = Toolkit.getDefaultToolkit();
+    Thread thread;
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
     KeyEventListener keyEventListener = new KeyEventListener();
 
     ImageObject characterImage = new ImageObject("image/jelly.png", 50, 65);
@@ -45,7 +45,7 @@ public class GameFrame extends JFrame implements Runnable {
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
         // get current screen value for frame location setting
-        Dimension screen = tk.getScreenSize();
+        Dimension screen = toolkit.getScreenSize();
 
         int xPosition = (int) (screen.getWidth() / 2 - FRAME_WIDTH / 2);
         int yPosition = (int) (screen.getHeight() / 2 - FRAME_HEIGHT / 2);
@@ -61,8 +61,8 @@ public class GameFrame extends JFrame implements Runnable {
 
         addKeyListener(keyEventListener);
 
-        th = new Thread(this);
-        th.start();
+        thread = new Thread(this);
+        thread.start();
     }
 
     public void run() { // thread infinite loop
@@ -87,21 +87,21 @@ public class GameFrame extends JFrame implements Runnable {
                     running = false;
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception error) {
         }
     }
 
-    public void paint(Graphics g) {
+    public void paint(Graphics graphics) {
         buffImage = createImage(FRAME_WIDTH, FRAME_HEIGHT);
         buffGraphics = buffImage.getGraphics();
 
-        update(g);
+        update(graphics);
     }
 
-    public void update(Graphics g) {
+    public void update(Graphics graphics) {
         draw();
 
-        g.drawImage(buffImage, 0, 0, this);
+        graphics.drawImage(buffImage, 0, 0, this);
     }
 
     public void draw() {

@@ -27,7 +27,7 @@ public class Enemy {
     }
 
     public void crash(Character character) {
-        if (crashCount == 0 && Collision.isCollided(this.x, this.y, character.x, character.y, this.imageObj.getWidth(), this.imageObj.getHeight(), character.imageObj.getWidth(), character.imageObj.getHeight())) {
+        if (crashCount == 0 && Collision.isCollided(this.x, this.y, character.x, character.y, this.imageObject.getWidth(), this.imageObject.getHeight(), character.imageObject.getWidth(), character.imageObject.getHeight())) {
             character.hp = character.hp - damage < 0 ? 0 : character.hp - damage;
             crashCount += 1;
         }
