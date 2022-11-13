@@ -35,6 +35,7 @@ public class Character {
                         y -= jumpScale / jumpDivision;
                         Thread.sleep(30);
                     } catch (Exception error) {
+                        error.printStackTrace();
                     }
                 }
 
@@ -43,6 +44,7 @@ public class Character {
                         y += jumpScale / jumpDivision;
                         Thread.sleep(30);
                     } catch (Exception error) {
+                        error.printStackTrace();
                     }
                 }
 
@@ -62,6 +64,7 @@ public class Character {
                 try {
                     Thread.sleep(400);
                 } catch (Exception error) {
+                    error.printStackTrace();
                 }
 
                 init();

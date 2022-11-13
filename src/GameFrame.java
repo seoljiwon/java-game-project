@@ -22,10 +22,9 @@ public class GameFrame extends JFrame implements Runnable {
     Background floor = new Background(floorImage, 400);
 
     ImageObject enemyImageGreen = new ImageObject("image/enemy_green.png", 35, 35);
-    Enemy groundGreenEnemy = new Enemy(enemyImageGreen, 30, 1600, 365);
+    Enemy groundGreenEnemy = new GroundEnemy(enemyImageGreen, 30, 1600, 365);
     ImageObject enemyImagePurple = new ImageObject("image/enemy_purple.png", 35, 35);
-    Enemy groundPurpleEnemy = new Enemy(enemyImagePurple, 30, 2000, 365);
-
+    Enemy groundPurpleEnemy = new GroundEnemy(enemyImagePurple, 30, 2000, 365);
 
     ImageObject descendingEnemyImage = new ImageObject("image/descending.png", 50, 340);
     DescendingEnemy descendingEnemy = new DescendingEnemy(descendingEnemyImage, 30, 900, -300);
@@ -89,6 +88,7 @@ public class GameFrame extends JFrame implements Runnable {
                 }
             }
         } catch (Exception error) {
+            error.printStackTrace();
         }
     }
 
