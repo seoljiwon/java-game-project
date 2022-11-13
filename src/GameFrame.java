@@ -9,8 +9,8 @@ public class GameFrame extends JFrame implements Runnable {
     Toolkit tk = Toolkit.getDefaultToolkit();
     KeyEventListener keyEventListener = new KeyEventListener();
 
-    ImageObject characterImg = new ImageObject("src/image/jelly.png", 30, 38);
-    Character character = new Character(characterImg, 100, 3);
+    ImageObject characterImg = new ImageObject("src/image/jelly.png", 50, 65);
+    Character character = new Character(characterImg, 1000, 3);
 
     ImageObject skyImg = new ImageObject("src/image/sky.png", 1600, 600);
     Background sky = new Background(skyImg);
@@ -24,6 +24,10 @@ public class GameFrame extends JFrame implements Runnable {
 
     ImageObject candyEnemyImg = new ImageObject("src/image/candy.png", 170, 340);
     CandyEnemy candyEnemy = new CandyEnemy(candyEnemyImg, 30, 900, -300);
+    
+    ImageObject bombEnemyImg = new ImageObject("src/image/enemy_bomb.png", 40, 40);
+    BombEnemy bombEnemy = new BombEnemy(bombEnemyImg, 30, 700, 0);
+
 
     // for double buffering
     Image buffImage;
@@ -59,15 +63,23 @@ public class GameFrame extends JFrame implements Runnable {
 
     public void run() { // thread infinite loop
         try {
-            while (true) {
+            boolean running = true;
+            while (running) {
                 character.move(keyEventListener); // update coordinates with keyboard input
                 sky.move();
                 floor.move();
                 enemy1.move();
                 enemy2.move();
+                enemy1.crash(character);
+                enemy2.crash(character);
                 candyEnemy.move();
+                bombEnemy.descend();
                 repaint(); // paint new image with updated coordinates
                 Thread.sleep(20); // run thread with 20 milli sec
+
+                if (character.hp == 0) {
+                    running = false;
+                }
             }
         } catch (Exception e) {
         }
@@ -94,8 +106,13 @@ public class GameFrame extends JFrame implements Runnable {
         buffGraphics.drawImage(enemy1.imageObj.image, enemy1.x, enemy1.y, this);
         buffGraphics.drawImage(enemy2.imageObj.image, enemy2.x, enemy2.y, this);
         buffGraphics.drawImage(candyEnemy.imageObj.image, candyEnemy.x, candyEnemy.y, this);
+        buffGraphics.drawImage(bombEnemy.imageObj.image, bombEnemy.x, bombEnemy.y, this);
         buffGraphics.setFont(new Font("Default", Font.BOLD, 15));
         buffGraphics.drawString("HP : " + character.hp, 700, 50);
-    }
 
+        if (character.hp == 0) {
+            buffGraphics.setFont(new Font("Default", Font.BOLD, 45));
+            buffGraphics.drawString("GAME OVER", 265, F_HEIGHT / 2);
+        }
+    }
 }
