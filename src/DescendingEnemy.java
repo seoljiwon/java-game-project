@@ -1,5 +1,5 @@
-public class CandyEnemy extends Enemy {
-    CandyEnemy(ImageObject imageObj, int damage, int x, int y) {
+public class DescendingEnemy extends Enemy {
+    DescendingEnemy(ImageObject imageObj, int damage, int x, int y) {
         super(imageObj, damage, x, y);
     }
 
