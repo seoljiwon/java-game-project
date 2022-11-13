@@ -3,7 +3,7 @@ package coordinate;
 import java.awt.*;
 
 public class ImageObject {
-    Toolkit tk = Toolkit.getDefaultToolkit();
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
     public Image image;
     public String path;
     int width;
@@ -18,7 +18,7 @@ public class ImageObject {
     }
 
     public Image getResizedImage(String path) {
-        return tk.getImage(path).getScaledInstance(width, height, hints);
+        return toolkit.getImage(path).getScaledInstance(width, height, hints);
     }
 
     public int getWidth() {

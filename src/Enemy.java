@@ -1,18 +1,18 @@
 import coordinate.*;
 
 public class Enemy {
-    ImageObject imageObj;
+    ImageObject imageObject;
 
     int damage;
 
     int x;
 
     int y;
-
+    
     int crashCount = 0;
 
-    public Enemy(ImageObject imageObj, int damage, int x, int y) {
-        this.imageObj = imageObj;
+    public Enemy(ImageObject imageObject, int damage, int x, int y) {
+        this.imageObject = imageObject;
         this.damage = damage;
         this.x = x;
         this.y = y;
@@ -27,7 +27,7 @@ public class Enemy {
     }
 
     public void crash(Character character) {
-        if (crashCount == 0 && Collision.isCollided(this.x, this.y, character.x, character.y, this.imageObj.getWidth(), this.imageObj.getHeight(), character.imageObj.getWidth(), character.imageObj.getHeight())) {
+        if (crashCount == 0 && Collision.isCollided(this.x, this.y, character.x, character.y, this.imageObject.getWidth(), this.imageObject.getHeight(), character.imageObject.getWidth(), character.imageObject.getHeight())) {
             character.hp = character.hp - damage < 0 ? 0 : character.hp - damage;
             crashCount += 1;
         }
