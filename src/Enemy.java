@@ -2,18 +2,19 @@ import java.awt.*;
 
 
 public class Enemy {
-    Image image;
+    ImageObject imageObj;
 
     int damage;
 
     int x;
 
-    int y = 365;
+    int y;
 
-    public Enemy(Image image, int damage, int x) {
-        this.image = image;
-        this.x = x;
+    public Enemy(ImageObject imageObj, int damage, int x, int y) {
+        this.imageObj = imageObj;
         this.damage = damage;
+        this.x = x;
+        this.y = y;
     }
 
     public void move() {

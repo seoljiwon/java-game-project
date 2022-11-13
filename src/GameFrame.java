@@ -19,8 +19,8 @@ public class GameFrame extends JFrame implements Runnable {
     Background floor = new Background(floorImg, 400);
 
     ImageObject enemyImg = new ImageObject("src/image/enemy_bomb.png", 40, 40);
-    Enemy enemy1 = new Enemy(enemyImg.image, 30, 900);
-    Enemy enemy2 = new Enemy(enemyImg.image, 30, 1200);
+    Enemy enemy1 = new Enemy(enemyImg, 30, 900, 365);
+    Enemy enemy2 = new Enemy(enemyImg, 30, 1200, 365);
 
 
     // for double buffering
@@ -88,8 +88,8 @@ public class GameFrame extends JFrame implements Runnable {
         buffGraphics.drawImage(sky.imageObj.image, sky.x, sky.y, this);
         buffGraphics.drawImage(floor.imageObj.image, floor.x, floor.y, this);
         buffGraphics.drawImage(character.imageObj.image, character.x, character.y, this);
-        buffGraphics.drawImage(enemy1.image, enemy1.x, enemy1.y, this);
-        buffGraphics.drawImage(enemy2.image, enemy2.x, enemy2.y, this);
+        buffGraphics.drawImage(enemy1.imageObj.image, enemy1.x, enemy1.y, this);
+        buffGraphics.drawImage(enemy2.imageObj.image, enemy2.x, enemy2.y, this);
     }
 
 }
