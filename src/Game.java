@@ -3,4 +3,3 @@ public class Game {
         GameFrame frame = new GameFrame();
     }
 }
-
