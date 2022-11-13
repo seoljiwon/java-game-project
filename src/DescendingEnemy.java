@@ -1,10 +1,14 @@
 import coordinate.ImageObject;
 
-public class DescendingEnemy extends Enemy {
+public class DescendingEnemy extends EnemyAbstract {
     public DescendingEnemy(ImageObject imageObj, int damage, int x, int y) {
-        super(imageObj, damage, x, y);
+        this.imageObj = imageObj;
+        this.damage = damage;
+        this.x = x;
+        this.y = y;
     }
 
+    @Override
     public void move() {
         x -= 8;
         if (y < 12) {

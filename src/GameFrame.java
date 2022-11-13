@@ -22,7 +22,7 @@ public class GameFrame extends JFrame implements Runnable {
     Background floor = new Background(floorImg, 400);
 
     ImageObject enemyImg = new ImageObject("image/enemy_basic.png", 40, 40);
-    
+
     Enemy enemy1 = new Enemy(enemyImg, 30, 1600, 365);
     Enemy enemy2 = new Enemy(enemyImg, 30, 2000, 365);
 
